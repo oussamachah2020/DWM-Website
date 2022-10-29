@@ -1,0 +1,89 @@
+// // importing other scss files
+// @import "variables";
+// @import "./home.scss";
+// @import "_variables.scss";
+
+// fira code font
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Fira Code", monospace;
+}
+
+// container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// flex column direction with children centered
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// flex container with 2 children that wrap in mobile
+.flex-2-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 150px;
+}
+
+@media (max-width: 767px) {
+  .flex-2-wrap {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.flex-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 25px;
+}
+
+.btn-rounded {
+  padding: 11px 47px;
+  border-radius: 50px;
+}
+
+// resets
+img {
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
