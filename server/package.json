@@ -1,8 +1,12 @@
 {
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20"
   },
   "scripts": {
@@ -13,7 +17,6 @@
   "description": "khdm t9wd hhhhhhhhhhhhhh wa5a hhhhhhhhh",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
