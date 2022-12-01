@@ -14,7 +14,7 @@
     "server": "nodemon server.js"
   },
   "name": "server",
-  "description": "khdm t9wd hhhhhhhhhhhhhh wa5a hhhhhhhhh",
+  "description": "",
   "version": "1.0.0",
   "main": "server.js",
   "keywords": [],
