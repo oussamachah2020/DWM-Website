@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+.login-student {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  form {
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+    width: 559px;
+    max-width: 100%;
+    padding: 0 53px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 89px;
+    margin-top: 17px;
+  }
+  input {
+    width: 100%;
+    &[type="text"] {
+      margin-bottom: 52px;
+    }
+    &[type="email"] {
+      margin-bottom: 61px;
+    }
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  button[type="submit"] {
+    margin-top: 61px;
+    margin-bottom: 16px;
+    background-color: $blue;
+    color: white;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .ghost-btn {
+    display: block;
+    margin-bottom: 41px;
+    font-size: 23px;
+    color: $lightblue;
+  }
+}

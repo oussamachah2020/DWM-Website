@@ -1,16 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Login from "./pages/loginStudent/Login";
+import LoginStudent from "./pages/loginStudent/LoginStudent";
+import LoginTeacher from "./pages/dashboard/login/LoginTeacher";
+import Nav from "./components/Nav";
 
 import "./App.scss";
-import Nav from "./components/Nav";
 function App() {
   return (
     <>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard">
+          <Route path="login" element={<LoginTeacher />} />
+        </Route>
+        <Route path="/login" element={<LoginStudent />} />
       </Routes>
     </>
   );

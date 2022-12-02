@@ -25,6 +25,7 @@ h4,
 h5,
 h6 {
   font-family: "Poppins";
+  font-weight: 600;
 }
 h1 {
   font-size: 39px;
@@ -70,6 +71,7 @@ h1 {
   padding: 16px 0;
   font-size: 25px;
   border-radius: 10px;
+  font-weight: 600;
 }
 
 .btn-rounded {
@@ -109,4 +111,20 @@ input {
   font-size: 23px;
   font-weight: 600;
   display: block;
+}
+
+.ghost-btn {
+  font-weight: 500;
+  font-size: 23px;
+  letter-spacing: 0.1em;
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+button[type="submit"] {
+  display: block;
+}
+
+button {
+  font-family: "poppins";
 }
