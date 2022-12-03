@@ -31,8 +31,25 @@ const register = AsyncHandler(async (req, res) => {
   }
 });
 
+const login = AsyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const prof = await Prof.findOne({ email });
+
+  if (prof && (await bcrypt.compare(password, prof.password))) {
+    res.status(200).json({
+      username: prof.username,
+      email: prof.email,
+      token: generateToken(prof._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Incorrect Data");
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { register };
+module.exports = { register, login };
