@@ -39,7 +39,7 @@ const register = AsyncHandler(async (req, res) => {
 
   if (student) {
     res.status(201).json({
-      _id: student.id,
+      id: student._id,
       username: student.username,
       email: student.email,
       year: student.year,

@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 import "./loginStudent.scss";
 const LoginStudent = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, error, isLoading } = useLogin("/api/students/login");
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(formData.email, formData.password);
+    navigate("/home");
   };
   return (
     <div className="login-student container">

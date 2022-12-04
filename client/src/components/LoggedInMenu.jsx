@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import {
   HelpIcon,
@@ -12,6 +12,12 @@ import useAuthContext from "../hooks/useAuthContext";
 const LoggedOutMenu = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    logout();
+    navigate("/");
+  };
   return (
     <div className="hamburger-menu">
       <img className="logo" src={logo} alt="Logo" />
@@ -20,9 +26,9 @@ const LoggedOutMenu = () => {
 
       <ul className="nav-links">
         <li>
-          <Link to="/home">
+          <Link to={user.admin ? "/dashboard" : "/home"}>
             <img className="icon" src={HomeIcon} alt="Icon" />
-            Accueil
+            {user.admin ? "Dashboard" : "Accueil"}
           </Link>
         </li>
         <li>
@@ -31,7 +37,7 @@ const LoggedOutMenu = () => {
             Horaires
           </Link>
         </li>
-        <li style={{ cursor: "pointer" }} onClick={logout}>
+        <li style={{ cursor: "pointer" }} onClick={handleLogout}>
           <img className="icon" src={ScheduleIcon} alt="Icon" />
           Se Deconnecter
         </li>

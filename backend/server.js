@@ -15,7 +15,7 @@ connection();
 app.use("/api/students", require("./routes/studentRoute"));
 app.use("/api/profs", require("./routes/profRoute"));
 app.use("/api/files", require("./routes/fileRoute"));
-app.use("/api/announce", require("./routes/announceRoute"));
+app.use("/api/announces", require("./routes/announceRoute"));
 
 // create a server
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));

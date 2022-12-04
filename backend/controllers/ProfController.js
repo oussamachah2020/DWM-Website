@@ -6,11 +6,29 @@ const Prof = require("../models/profModel");
 const register = AsyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
 
-  const studentExist = await Prof.findOne({ email });
+  const profExists = await Prof.findOne({ email });
 
-  if (studentExist) {
-    res.status(401);
-    throw new Error("Student already exist");
+  if (profExists) {
+    const errorMsg = "Prof deja existe";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
+  }
+
+  if (!username) {
+    const errorMsg = "Le nom de prof est necessaire";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
+  }
+
+  if (!email) {
+    const errorMsg = "Le email de prof n'est pas trouvé";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
+  }
+  if (!password) {
+    const errorMsg = "Le mot de passe  de prof n'est pas trouvé";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 
   const salt = await bcrypt.genSalt(10);
@@ -20,11 +38,16 @@ const register = AsyncHandler(async (req, res) => {
     username: username,
     email: email,
     password: hashPassword,
-    token: generateToken,
   });
+  const token = generateToken(prof._id);
 
   if (prof) {
-    res.status(201).json({ prof });
+    res.status(201).json({
+      id: prof._id,
+      username: prof.username,
+      email: prof.email,
+      token,
+    });
   } else {
     res.status(401);
     throw new Error("wrong data");

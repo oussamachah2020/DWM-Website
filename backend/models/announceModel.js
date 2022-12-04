@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const announceSchema = mongoose.Schema(
   {
-    prof: {
+    profID: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "Prof",

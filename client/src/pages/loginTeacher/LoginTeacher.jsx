@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 import "./loginTeacher.scss";
 const LoginTeacher = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const { login, error, isLoading } = useLogin("/api/profs/login");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("formData", formData);
+    await login(formData.email, formData.password, true);
+    navigate("/dashboard/");
   };
   return (
     <div className="login-teacher container">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
+        {error && <p className="error">{error}</p>}
         <input
           type="email"
           value={formData.email}
@@ -31,7 +36,7 @@ const LoginTeacher = () => {
           }
           placeholder="Mot de passe"
         />
-        <button className="btn-primary" type="submit">
+        <button disabled={isLoading} className="btn-primary" type="submit">
           Se Connecter
         </button>
         <Link className="ghost-btn" to="">

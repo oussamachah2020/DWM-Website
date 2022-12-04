@@ -5,6 +5,8 @@ import ScheduleIcon from "./shcedule_icon 1.svg";
 import SignInIcon from "./signIn_icon 1.svg";
 import StudentIcon from "./student_icon 1.svg";
 import TeacherIcon from "./teacher_icon 1.svg";
+import AddIcon from "./addcircle.svg";
+import NoteIcon from "./note.svg";
 
 export {
   HelpIcon,
@@ -14,4 +16,6 @@ export {
   SignInIcon,
   StudentIcon,
   TeacherIcon,
+  AddIcon,
+  NoteIcon,
 };

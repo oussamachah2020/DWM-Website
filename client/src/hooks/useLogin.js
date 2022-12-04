@@ -7,7 +7,7 @@ export const useLogin = (url) => {
 
   const { dispatch } = useAuthContext();
 
-  const login = async (email, password) => {
+  const login = async (email, password, admin = false) => {
     setIsLoading(true);
     setError(null);
 
@@ -17,17 +17,17 @@ export const useLogin = (url) => {
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await response.json();
+    const json = await response.json();
     if (!response.ok) {
       setIsLoading(false);
-      setError(data.error);
+      setError(json.error);
     }
     if (response.ok) {
       // save user to local storage
-      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("user", JSON.stringify({ ...json, admin }));
 
       // update the auth state
-      dispatch({ type: "LOGIN", payload: data });
+      dispatch({ type: "LOGIN", payload: { ...json, admin } });
 
       setIsLoading(false);
     }
