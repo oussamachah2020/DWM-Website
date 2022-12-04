@@ -5,7 +5,7 @@ const postAnnounce = asyncHandler(async (req, res) => {
 
   const announce = await Announce.create({
     prof: req.prof.id,
-    content: req.body.text,
+    content: req.body.text, 
     year: req.body.year
   });
 
