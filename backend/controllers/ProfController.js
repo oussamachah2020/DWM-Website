@@ -43,8 +43,9 @@ const login = AsyncHandler(async (req, res) => {
       token: generateToken(prof._id),
     });
   } else {
-    res.status(401);
-    throw new Error("Incorrect Data");
+    const errorMsg = "Email ou mot de passe incorrecte";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 });
 

@@ -24,4 +24,10 @@ nav {
     backdrop-filter: blur(3px);
     z-index: 99;
   }
+
+  .name-burger-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 }

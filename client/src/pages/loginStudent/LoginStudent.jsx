@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 import "./loginStudent.scss";
 const LoginStudent = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-
+  const { login, error, isLoading } = useLogin("/api/students/login");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("formData", formData);
+    await login(formData.email, formData.password);
   };
   return (
     <div className="login-student container">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
+        {error && <span className="error">{error}</span>}
         <input
           type="email"
           value={formData.email}
@@ -31,7 +33,7 @@ const LoginStudent = () => {
           }
           placeholder="Mot de passe"
         />
-        <button className="btn-primary" type="submit">
+        <button disabled={isLoading} className="btn-primary" type="submit">
           Se Connecter
         </button>
         <Link className="ghost-btn" to="">
