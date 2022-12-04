@@ -35,7 +35,7 @@ const LoggedOutMenu = () => {
             Se Connecter
           </p>
           <ul className="authentication-links">
-            <Link to="/home">
+            <Link to="/login">
               <img className="icon" src={StudentIcon} alt="Icon" />
               Etudiant
             </Link>
