@@ -8,6 +8,7 @@ const insertMarks = asyncHandler(async (req, res) => {
   const marks = await Marks.create({
     marks: table,
     students: req.body.students,
+    subject: req.body.subject,
     profId: req.prof.id,
   });
 

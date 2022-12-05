@@ -1,5 +1,6 @@
 const multer = require("multer");
 const FileModel = require("../models/fileModel");
+const fsPromises = require("fs/promises");
 
 //Cours upload
 const Cours = multer.diskStorage({
@@ -37,4 +38,12 @@ const uploadTDs = multer({
   storage: TDs,
 }).single("testTDs"); 
 
-module.exports = { uploadCours, uploadTPs, uploadTDs };
+const deleteFile = async(filePath) => {
+  try {
+    await fsPromises.unlink(filePath)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { uploadCours, uploadTPs, uploadTDs, deleteFile };
