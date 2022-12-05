@@ -39,15 +39,16 @@ const register = AsyncHandler(async (req, res) => {
 
   if (student) {
     res.status(201).json({
-      _id: student.id,
+      id: student._id,
       username: student.username,
       email: student.email,
       year: student.year,
       token,
     });
   } else {
-    res.status(401);
-    throw new Error("wrong data");
+    const errorMsg = "N'a pas pu de s'inscrire l'etudiant";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 });
 
@@ -56,19 +57,25 @@ const login = AsyncHandler(async (req, res) => {
 
   // validate if email and password are both provided
   if (!email || !password) {
-    throw new Error("Email ou mot de passe manquant");
+    const errorMsg = "Email ou mot de passe manquant";
+    res.status(400).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 
   const student = await Student.findOne({ email });
   // validate if email is correct
   if (!student) {
-    throw new Error("Adresse Email incorrecte");
+    const errorMsg = "Adresse Email incorrecte";
+    res.status(400).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 
   // validate if password is correct
   const match = await bcrypt.compare(password, student.password);
   if (!match) {
-    throw new Error("Mot de passe incorrecte");
+    const errorMsg = "Mot de passe incorrecte";
+    res.status(400).json({ error: errorMsg });
+    throw new Error(errorMsg);
   }
 
   // student is logged in! create token and send it to the client along with student data
@@ -92,8 +99,51 @@ const deleteStudent = AsyncHandler(async (req, res) => {
     throw new Error("Student not found");
   }
 });
+
+const addStudent = AsyncHandler(async (req, res) => {
+  const { username, email, password, year } = req.body;
+  // checking if email is valid
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("L'email ou le mot de passe ne sont pas fournis");
+  }
+  if (!validator.isEmail(email)) {
+    throw new Error("L'email n'est pas valide");
+  }
+  // end of checking if email is valid
+
+  const studentExist = await Student.findOne({ email });
+
+  if (studentExist) {
+    res.status(401);
+    throw new Error("Student already exist");
+  }
+
+  const salt = await bcrypt.genSalt(10);
+  const hashPassword = await bcrypt.hash(password, salt);
+
+  const student = await Student.create({
+    username,
+    email,
+    password: hashPassword,
+    year: year,
+  });
+
+  if (student) {
+    res.status(201).json({
+      _id: student.id,
+      username: student.username,
+      email: student.email,
+      year: student.year,
+    });
+  } else {
+    const errorMsg = "N'a pas pu d'ajouter l'etudiant";
+    res.status(401).json({ error: errorMsg });
+    throw new Error(errorMsg);
+  }
+});
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { register, login, deleteStudent };
+module.exports = { register, login, deleteStudent, addStudent };

@@ -2,18 +2,25 @@ const asyncHandler = require("express-async-handler");
 const { Announce } = require("../models/announceModel");
 
 const postAnnounce = asyncHandler(async (req, res) => {
-
+  const { content, year } = req.body;
+  const { id } = req.prof;
   const announce = await Announce.create({
-    prof: req.prof.id,
-    content: req.body.text, 
-    year: req.body.year
+    profID: id,
+    content,
+    year,
   });
 
   if (announce) {
     res.status(201).json({ announce });
   } else {
-    throw new Error("false data");    
+    throw new Error("false data");
   }
 });
 
-module.exports = { postAnnounce };
+const getAnnounces = asyncHandler(async (req, res) => {
+  const announces = await Announce.find({});
+
+  res.status(200).json({ announces });
+});
+
+module.exports = { postAnnounce, getAnnounces };

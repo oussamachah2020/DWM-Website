@@ -35,11 +35,11 @@ const LoggedOutMenu = () => {
             Se Connecter
           </p>
           <ul className="authentication-links">
-            <Link to="/home">
+            <Link to="/login">
               <img className="icon" src={StudentIcon} alt="Icon" />
               Etudiant
             </Link>
-            <Link to="/home">
+            <Link to="/dashboard/login">
               <img className="icon" src={TeacherIcon} alt="Icon" />
               Professeur
             </Link>
