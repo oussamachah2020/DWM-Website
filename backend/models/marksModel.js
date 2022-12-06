@@ -9,6 +9,10 @@ const marksSchema = mongoose.Schema({
     type: [String],
     required: true,
   },
+  subject: {
+    type: String,
+    require: ["subject required", true]
+  },
   profId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
