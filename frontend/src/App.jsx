@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 
 import "./App.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Annoncer from "./pages/dashboard/annoncer/Annoncer";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard">
           <Route index element={<Dashboard />} />
           <Route path="login" element={<LoginTeacher />} />
+          <Route path="annoncer" element={<Annoncer />} />
         </Route>
         <Route path="/login" element={<LoginStudent />} />
       </Routes>

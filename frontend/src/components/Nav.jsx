@@ -19,8 +19,8 @@ const Nav = () => {
         {user && <h4>Bienvenue {user.username}</h4>}
         <Hamburger size={35} toggled={isOpen} toggle={() => setOpen(!isOpen)} />
       </div>
-      {isOpen && !user && <LoggedOutMenu />}
-      {isOpen && user && <LoggedInMenu />}
+      {isOpen && !user && <LoggedOutMenu setOpen={setOpen} />}
+      {isOpen && user && <LoggedInMenu setOpen={setOpen} />}
     </nav>
   );
 };

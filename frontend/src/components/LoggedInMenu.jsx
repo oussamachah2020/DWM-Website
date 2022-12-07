@@ -9,7 +9,7 @@ import {
 } from "../assets/icons";
 import { useLogout } from "../hooks/useLogout";
 import useAuthContext from "../hooks/useAuthContext";
-const LoggedOutMenu = () => {
+const LoggedOutMenu = ({ setOpen }) => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -25,13 +25,13 @@ const LoggedOutMenu = () => {
       <p className="silent">Menu</p>
 
       <ul className="nav-links">
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to={user.admin ? "/dashboard" : "/home"}>
             <img className="icon" src={HomeIcon} alt="Icon" />
             {user.admin ? "Dashboard" : "Accueil"}
           </Link>
         </li>
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={ScheduleIcon} alt="Icon" />
             Horaires
@@ -42,13 +42,13 @@ const LoggedOutMenu = () => {
           Se Deconnecter
         </li>
 
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={SettingsIcon} alt="Icon" />
             Settings
           </Link>
         </li>
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={HelpIcon} alt="Icon" />
             Help

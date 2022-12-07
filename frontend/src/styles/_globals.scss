@@ -1,5 +1,5 @@
 // // importing other scss files
-// @import "variables";
+@import "variables";
 // @import "./home.scss";
 // @import "_variables.scss";
 
@@ -16,7 +16,7 @@
 
 body {
   min-height: 100vh;
-  font-family: "Fira Code", monospace;
+  font-family: "Poppins", monospace;
 }
 h1,
 h2,
@@ -29,6 +29,11 @@ h6 {
 }
 h1 {
   font-size: 39px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
 }
 // container
 .container {
@@ -70,10 +75,30 @@ h1 {
 
 .btn-primary {
   width: 100%;
-  padding: 16px 0;
+  padding: 16px 10px;
   font-size: 25px;
   border-radius: 10px;
   font-weight: 600;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-link {
+  text-decoration: underline;
+  color: $blue;
+  background: transparent;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  border: 4px solid $blue;
+  border-radius: 10px;
+  background: transparent;
+  color: black;
+  font-weight: 600;
+  padding: 16px 10px;
+  font-size: 25px;
 }
 
 .btn-rounded {
@@ -129,4 +154,45 @@ button[type="submit"] {
 
 button {
   font-family: "poppins";
+}
+
+.error {
+  color: #d8000c;
+  background-color: #ffbaba;
+}
+
+.info,
+.success,
+.warning,
+.error,
+.validation {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+}
+
+.info {
+  color: #00529b;
+  background-color: #bde5f8;
+}
+.success {
+  color: #4f8a10;
+  background-color: #dff2bf;
+}
+.warning {
+  color: #9f6000;
+  background-color: #feefb3;
+}
+.error {
+  color: #d8000c;
+  background-color: #ffbaba;
+}
+.validation {
+  color: #d63301;
+  background-color: #ffccba;
+}
+
+button:disabled {
+  background-color: #feefb3 !important;
+  cursor: wait !important;
 }

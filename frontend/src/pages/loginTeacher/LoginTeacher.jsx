@@ -9,8 +9,8 @@ const LoginTeacher = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(formData.email, formData.password, true);
-    navigate("/dashboard/");
+    const isValid = await login(formData.email, formData.password, true);
+    if (isValid) navigate("/dashboard/");
   };
   return (
     <div className="login-teacher container">

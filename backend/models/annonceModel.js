@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const announceSchema = mongoose.Schema(
+const annonceSchema = mongoose.Schema(
   {
     profID: {
       type: mongoose.Schema.Types.ObjectId,
@@ -9,15 +9,15 @@ const announceSchema = mongoose.Schema(
     },
     content: {
       type: String,
-      required: ["content required", true],
+      required: ["Le contenu est requis", true],
     },
     year: {
       type: String,
-      required: ["year required", true],
+      required: ["L'année d'étude est requise", true],
     },
   },
   { timestamps: true }
 );
 
-const Announce = mongoose.model("announce", announceSchema);
-module.exports = { Announce };
+const Annonce = mongoose.model("annonces", annonceSchema);
+module.exports = { Annonce };

@@ -1,6 +1,6 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
-const colors = require("colors");
+require("dotenv").config();
+require("colors");
 const PORT = 6060 || process.env.PORT;
 const connection = require("./db/connect");
 
@@ -15,7 +15,7 @@ connection();
 app.use("/api/students", require("./routes/studentRoute"));
 app.use("/api/profs", require("./routes/profRoute"));
 app.use("/api/files", require("./routes/fileRoute"));
-app.use("/api/announces", require("./routes/announceRoute"));
+app.use("/api/annonces", require("./routes/annonceRoute"));
 
 // create a server
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));

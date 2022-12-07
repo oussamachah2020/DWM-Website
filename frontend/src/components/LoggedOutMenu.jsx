@@ -10,20 +10,20 @@ import {
   StudentIcon,
   TeacherIcon,
 } from "../assets/icons";
-const LoggedOutMenu = () => {
+const LoggedOutMenu = ({ setOpen }) => {
   return (
     <div className="hamburger-menu">
       <img className="logo" src={logo} alt="Logo" />
       <p className="silent">Menu</p>
 
       <ul className="nav-links">
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={HomeIcon} alt="Icon" />
             Accueil
           </Link>
         </li>
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={ScheduleIcon} alt="Icon" />
             Horaires
@@ -35,23 +35,23 @@ const LoggedOutMenu = () => {
             Se Connecter
           </p>
           <ul className="authentication-links">
-            <Link to="/login">
+            <Link onClick={() => setOpen(false)} to="/login">
               <img className="icon" src={StudentIcon} alt="Icon" />
               Etudiant
             </Link>
-            <Link to="/dashboard/login">
+            <Link onClick={() => setOpen(false)} to="/dashboard/login">
               <img className="icon" src={TeacherIcon} alt="Icon" />
               Professeur
             </Link>
           </ul>
         </li>
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={SettingsIcon} alt="Icon" />
             Settings
           </Link>
         </li>
-        <li>
+        <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={HelpIcon} alt="Icon" />
             Help

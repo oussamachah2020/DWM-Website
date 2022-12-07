@@ -9,14 +9,14 @@ const LoginStudent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(formData.email, formData.password);
-    navigate("/home");
+    const isValid = await login(formData.email, formData.password);
+    if (isValid) navigate("/home");
   };
   return (
     <div className="login-student container">
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
-        {error && <span className="error">{error}</span>}
+        {error && <p className="error">{error}</p>}
         <input
           type="email"
           value={formData.email}
