@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .dashboard-page {
-  padding-top: $navSize;
+  padding-top: $navSize !important;
   h2 {
     margin-top: 46px;
     font-style: italic;

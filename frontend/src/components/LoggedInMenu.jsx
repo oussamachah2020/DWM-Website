@@ -25,12 +25,30 @@ const LoggedOutMenu = ({ setOpen }) => {
       <p className="silent">Menu</p>
 
       <ul className="nav-links">
-        <li onClick={() => setOpen(false)}>
-          <Link to={user.admin ? "/dashboard" : "/home"}>
-            <img className="icon" src={HomeIcon} alt="Icon" />
-            {user.admin ? "Dashboard" : "Accueil"}
-          </Link>
-        </li>
+        {user.admin ? (
+          <>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/home">
+                <img className="icon" src={HomeIcon} alt="Icon" />
+                Accueil
+              </Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/dashboard">
+                <img className="icon" src={HomeIcon} alt="Icon" />
+                Dashboard
+              </Link>
+            </li>{" "}
+          </>
+        ) : (
+          <li onClick={() => setOpen(false)}>
+            <Link to="/home">
+              <img className="icon" src={HomeIcon} alt="Icon" />
+              Accueil
+            </Link>
+          </li>
+        )}
+
         <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={ScheduleIcon} alt="Icon" />

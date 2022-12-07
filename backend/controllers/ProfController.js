@@ -72,8 +72,18 @@ const login = AsyncHandler(async (req, res) => {
   }
 });
 
+const getProfData = AsyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const prof = await Prof.findById(id);
+  if (prof) {
+    res.status(200).json(prof);
+  } else {
+    res.status(400).json({ error: "Prof n'exist pas" });
+  }
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { register, login };
+module.exports = { register, login, getProfData };

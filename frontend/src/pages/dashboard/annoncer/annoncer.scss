@@ -1,6 +1,6 @@
 @import "../../../styles/variables";
 .announce-page {
-  padding-top: $navSize;
+  padding-top: $navSize !important;
   margin-bottom: 113px;
   h2 {
     margin-top: 45px;

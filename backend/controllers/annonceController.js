@@ -22,7 +22,7 @@ const postAnnonce = asyncHandler(async (req, res) => {
 const getAnnonces = asyncHandler(async (req, res) => {
   const annonces = await Annonce.find({});
 
-  res.status(200).json({ annonces });
+  res.status(200).json(annonces);
 });
 
 module.exports = { postAnnonce, getAnnonces };

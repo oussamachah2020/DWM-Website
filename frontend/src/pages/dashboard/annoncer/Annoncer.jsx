@@ -1,43 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuthContext from "../../../hooks/useAuthContext";
+import useProfContext from "../../../hooks/useProfContext";
 import "./annoncer.scss";
 const Announcer = () => {
-  const { user } = useAuthContext();
   const [formData, setFormData] = useState({
     content: "",
     year: "1ere année",
   });
-  const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
+  const { success, error, isLoading, postAnnonce } = useProfContext();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { content, year } = formData;
-    setSuccess("");
-    setError("");
-    if (!content) return setError("Le contenu est requis");
-    if (!year) return setError("l'année d'étude est requise");
-    const response = await fetch("/api/annonces", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer: ${user.token}`,
-      },
-      body: JSON.stringify({ content, year }),
-    });
-    const json = await response.json();
-    if (response.ok) {
-      setSuccess("Annonce publié avec success");
-      setFormData({ ...formData, content: "" });
-    } else {
-      setError(json.error);
-    }
+    await postAnnonce(content, year);
+    setFormData({ ...formData, content: "" });
   };
   return (
-    <div className="announce-page container-fluid">
+    <div className="container-fluid announce-page">
       <h2>Créer une annonce</h2>
       {success && (
         <p className="success">
@@ -87,7 +68,7 @@ const Announcer = () => {
         </div>
         <div className="btns-container">
           <button className="btn-secondary">Cancel</button>
-          <button type="submit" className="btn-primary">
+          <button disabled={isLoading} type="submit" className="btn-primary">
             Announcer
           </button>
         </div>

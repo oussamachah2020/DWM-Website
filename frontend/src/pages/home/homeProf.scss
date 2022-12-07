@@ -1,0 +1,65 @@
+@import "../../styles/globals";
+.home-prof {
+  padding-top: calc($navSize + 39px) !important;
+  display: flex;
+  justify-content: flex-start;
+  gap: 66px;
+  aside {
+    flex: 0 1 300px;
+    a {
+      display: block;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      span {
+        font-size: 12px;
+        color: #5b5b5b;
+      }
+      &:hover span {
+        color: black;
+      }
+    }
+  }
+  main {
+    flex: 1 1 400px;
+    article {
+      border: 2px solid #929292;
+      border-radius: 10px;
+      margin-bottom: 27px;
+      padding: 13px;
+      padding-bottom: 8.5px;
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 28px;
+        h2 {
+          font-size: 20px;
+        }
+        span {
+          font-size: 10px;
+
+          color: #414141;
+        }
+      }
+      .card-body {
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      .card-footer {
+        display: flex;
+        justify-content: flex-end;
+        span {
+          font-size: 10px;
+          display: inline-block;
+          padding: 1.5px 15px;
+          background: #219f2d;
+          border-radius: 5px;
+          color: white;
+        }
+      }
+    }
+  }
+}
