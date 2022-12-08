@@ -14,8 +14,8 @@ const ProfContextProvider = ({ children }) => {
 
   // POST annonce
   const postAnnonce = async (content, year) => {
-    setSuccess("");
-    setError("");
+    setSuccess(null);
+    setError(null);
     if (!content) return setError("Le contenu est requis");
     if (!year) return setError("l'année d'étude est requise");
     setIsLoading(true);
@@ -37,9 +37,38 @@ const ProfContextProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  // GET prof annonces
+  const getProfAnnonces = async () => {
+    setIsLoading(true);
+    const response = await fetch("/api/annonces", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer: ${user.token}`,
+      },
+    });
+
+    const json = await response.json();
+    setProfAnnonces(json);
+    setIsLoading(false);
+  };
+
+  // DELETE Annonce
+  const deleteAnnonce = async (annonceID) => {
+    const response = await fetch(`/api/annonces/${annonceID}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      setProfAnnonces(
+        profAnnonces.filter((annonce) => annonce._id !== annonceID)
+      );
+      return true;
+    }
+    return false;
+  };
+
   // GET all annonces
   const getAllAnnonces = async () => {
-    const response = await fetch("/api/annonces");
+    const response = await fetch("/api/annonces/all");
     const json = await response.json();
     return json;
   };
@@ -71,9 +100,12 @@ const ProfContextProvider = ({ children }) => {
     error,
     success,
     isLoading,
+    setSuccess,
     postAnnonce,
+    getProfAnnonces,
     allAnnonces,
     getAnnoncesWithAnnocersData,
+    deleteAnnonce,
   };
   return <ProfContext.Provider value={values}>{children}</ProfContext.Provider>;
 };

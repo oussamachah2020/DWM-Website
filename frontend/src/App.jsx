@@ -8,12 +8,9 @@ import "./App.scss";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Annoncer from "./pages/dashboard/annoncer/Annoncer";
 import ProfContextRoutesProvider from "./pages/dashboard/ProfContextRoutesProvider";
-import useAuthContext from "./hooks/useAuthContext";
-import HomeProf from "./pages/home/HomeProf";
-import HomeStudent from "./pages/home/HomeStudent";
 import Home from "./pages/home/Home";
+import ProfAnnonces from "./pages/dashboard/prof annonces/ProfAnnonces";
 function App() {
-  const { user } = useAuthContext();
   return (
     <>
       <Nav />
@@ -23,6 +20,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="login" element={<LoginTeacher />} />
           <Route path="annoncer" element={<Annoncer />} />
+          <Route path="mesannonces" element={<ProfAnnonces />} />
         </Route>
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<LoginStudent />} />

@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useProfContext from "../../../hooks/useProfContext";
@@ -10,7 +11,11 @@ const Announcer = () => {
   });
 
   const navigate = useNavigate();
-  const { success, error, isLoading, postAnnonce } = useProfContext();
+  const { success, error, isLoading, postAnnonce, setSuccess } =
+    useProfContext();
+  useEffect(() => {
+    setSuccess(null);
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { content, year } = formData;
@@ -67,9 +72,11 @@ const Announcer = () => {
           </div>
         </div>
         <div className="btns-container">
-          <button className="btn-secondary">Cancel</button>
+          <button onClick={() => navigate(-1)} className="btn-secondary">
+            Annuler
+          </button>
           <button disabled={isLoading} type="submit" className="btn-primary">
-            Announcer
+            Annoncer
           </button>
         </div>
       </form>
