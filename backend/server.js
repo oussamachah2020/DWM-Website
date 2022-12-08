@@ -3,6 +3,7 @@ require("dotenv").config();
 require("colors");
 const PORT = 6060 || process.env.PORT;
 const connection = require("./db/connect");
+const subjectRoute = require("./routes/subjectRoute");
 
 const app = express();
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use("/api/students", require("./routes/studentRoute"));
 app.use("/api/profs", require("./routes/profRoute"));
 app.use("/api/files", require("./routes/fileRoute"));
 app.use("/api/annonces", require("./routes/annonceRoute"));
+app.use("/api/subjects", subjectRoute);
 
 // create a server
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));

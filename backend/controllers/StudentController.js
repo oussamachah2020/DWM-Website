@@ -142,8 +142,30 @@ const addStudent = AsyncHandler(async (req, res) => {
     throw new Error(errorMsg);
   }
 });
+
+const getStudentsByYear = AsyncHandler(async (req, res) => {
+  const { year } = req.params;
+
+  let année;
+  if (year == "1") {
+    année = "1ere année";
+  } else if (year == "2") {
+    année = "2eme année";
+  } else {
+    res.status(400).json("L'année d'etude doit etre 1 ou 2");
+  }
+  const students = await Student.find({ year: année });
+
+  res.status(200).json(students);
+});
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { register, login, deleteStudent, addStudent };
+module.exports = {
+  register,
+  login,
+  deleteStudent,
+  addStudent,
+  getStudentsByYear,
+};

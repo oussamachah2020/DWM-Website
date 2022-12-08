@@ -8,6 +8,7 @@ const ProfContextProvider = ({ children }) => {
 
   const [profAnnonces, setProfAnnonces] = useState([]);
   const [allAnnonces, setAllAnnonces] = useState([]);
+  const [profSubjects, setProfSubjects] = useState([]);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -96,8 +97,27 @@ const ProfContextProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  // GET prof subjects
+  const getProfSubjects = async () => {
+    if (!user) return;
+    setIsLoading(true);
+    const response = await fetch("/api/subjects/", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    if (response.ok) {
+      const json = await response.json();
+      setProfSubjects(json);
+      setIsLoading(false);
+      return;
+    }
+  };
+
   const values = {
     profAnnonces,
+    profSubjects,
     error,
     success,
     isLoading,
@@ -107,6 +127,7 @@ const ProfContextProvider = ({ children }) => {
     allAnnonces,
     getAnnoncesWithAnnocersData,
     deleteAnnonce,
+    getProfSubjects,
   };
   return <ProfContext.Provider value={values}>{children}</ProfContext.Provider>;
 };
