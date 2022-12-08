@@ -25,7 +25,10 @@ const ProfAnnonceCard = ({ createdAt, content, year, _id }) => {
     <article className="annonce-card">
       {error && <p className="error">{error}</p>}
       <div className="card-header">
-        <h2>{user.username}</h2>
+        <div>
+          <h2>{user.username}</h2>
+          <p>{user.email}</p>
+        </div>
         <span>{dateFormatted}</span>
       </div>
       <div className="card-body">
@@ -39,7 +42,9 @@ const ProfAnnonceCard = ({ createdAt, content, year, _id }) => {
             <Trash2 color="red" size={25} className="icon delete-icon" />
           )}
         </button>
-        <span>{year}</span>
+        <span className={year === "1ere année" ? "first-year" : "second-year"}>
+          {year}
+        </span>
       </div>
     </article>
   );

@@ -39,6 +39,7 @@ const ProfContextProvider = ({ children }) => {
 
   // GET prof annonces
   const getProfAnnonces = async () => {
+    if (!user) return;
     setIsLoading(true);
     const response = await fetch("/api/annonces", {
       method: "GET",

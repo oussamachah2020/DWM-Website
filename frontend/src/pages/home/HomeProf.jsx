@@ -1,31 +1,26 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import useProfContext from "../../hooks/useProfContext";
 import { HomeIcon } from "../../assets/icons";
 import AnnonceCard from "../../components/AnnonceCard";
-import "./homeProf.scss";
+import "./home.scss";
 const HomeProf = () => {
   const { getAnnoncesWithAnnocersData, isLoading, allAnnonces } =
     useProfContext();
 
   useEffect(() => {
-    const fetchData = async () => {
-      await getAnnoncesWithAnnocersData();
-    };
-
-    fetchData();
+    getAnnoncesWithAnnocersData();
   }, []);
 
   if (isLoading)
     return (
-      <div className="home-prof container-fluid">
+      <div className="home container-fluid">
         <h2>Loading...</h2>
       </div>
     );
   return (
-    <div className="home-prof container-fluid">
+    <div className="home container-fluid">
       <aside>
         <Link to="/dashboard/annoncer">
           <img src={HomeIcon} alt="Icon" />

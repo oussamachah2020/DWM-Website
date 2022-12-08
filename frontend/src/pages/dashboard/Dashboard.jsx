@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-page container-fluid">
       <h2>
-        Bienvenue <span>{user.username}</span>
+        Bienvenue <span>{user?.username}</span>
       </h2>
       <div className="actions-container">
         <Link to="annoncer" className="action">

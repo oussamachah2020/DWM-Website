@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProfContextProvider from "../../contexts/ProfContext";
 import StudentContextProvider from "../../contexts/StudentContext";
 import useAuthContext from "../../hooks/useAuthContext";
@@ -7,9 +7,10 @@ import HomeStudent from "./HomeStudent";
 
 const Home = () => {
   const { user } = useAuthContext();
+
   return (
     <>
-      {user.admin ? (
+      {user?.admin ? (
         <ProfContextProvider>
           <HomeProf />
         </ProfContextProvider>

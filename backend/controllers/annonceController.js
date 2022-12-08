@@ -27,7 +27,21 @@ const getAnnonces = asyncHandler(async (req, res) => {
   res.status(200).json(annonces);
 });
 
-const get1stYearAnnonces = asyncHandler(async (req, res) => {});
+const get1stYearAnnonces = asyncHandler(async (req, res) => {
+  const annonces = await Annonce.find({ year: "1ere année" }).sort({
+    createdAt: -1,
+  });
+
+  res.status(200).json(annonces);
+});
+
+const get2ndYearAnnonces = asyncHandler(async (req, res) => {
+  const annonces = await Annonce.find({ year: "2eme année" }).sort({
+    createdAt: -1,
+  });
+
+  res.status(200).json(annonces);
+});
 
 const getProfAnnonces = asyncHandler(async (req, res) => {
   const { _id } = req.prof;
@@ -55,4 +69,11 @@ const deleteAnnonce = async (req, res) => {
   res.status(200).json(annonce);
 };
 
-module.exports = { postAnnonce, getAnnonces, getProfAnnonces, deleteAnnonce };
+module.exports = {
+  postAnnonce,
+  getAnnonces,
+  getProfAnnonces,
+  deleteAnnonce,
+  get1stYearAnnonces,
+  get2ndYearAnnonces,
+};

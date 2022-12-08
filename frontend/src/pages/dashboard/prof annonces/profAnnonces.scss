@@ -38,6 +38,11 @@
         h2 {
           font-size: 20px;
         }
+        p {
+          font-size: 12px;
+
+          color: #414141;
+        }
         span {
           font-size: 10px;
 
@@ -67,6 +72,10 @@
           background: #219f2d;
           border-radius: 5px;
           color: white;
+          &.first-year {
+            background: rgb(249, 249, 95);
+            color: black;
+          }
         }
       }
     }

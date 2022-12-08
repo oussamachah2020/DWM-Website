@@ -5,12 +5,14 @@ import useProfContext from "../../../hooks/useProfContext";
 import { HomeIcon } from "../../../assets/icons";
 import "./profAnnonces.scss";
 import ProfAnnonceCard from "../../../components/ProfAnnonceCard";
+import useAuthContext from "../../../hooks/useAuthContext";
 const ProfAnnonces = () => {
+  const { user } = useAuthContext();
   const { getProfAnnonces, isLoading, profAnnonces } = useProfContext();
 
   useEffect(() => {
     getProfAnnonces();
-  }, []);
+  }, [user]);
 
   if (isLoading)
     return (
