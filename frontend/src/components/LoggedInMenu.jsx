@@ -9,6 +9,13 @@ import {
 } from "../assets/icons";
 import { useLogout } from "../hooks/useLogout";
 import useAuthContext from "../hooks/useAuthContext";
+import {
+  BoxArrowDownLeft,
+  BoxArrowLeft,
+  CardChecklist,
+  House,
+  Person,
+} from "react-bootstrap-icons";
 const LoggedOutMenu = ({ setOpen }) => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
@@ -38,15 +45,51 @@ const LoggedOutMenu = ({ setOpen }) => {
                 <img className="icon" src={HomeIcon} alt="Icon" />
                 Dashboard
               </Link>
-            </li>{" "}
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/dashboard/profile">
+                <Person
+                  size={25}
+                  color="royalblue"
+                  style={{ marginRight: "5px" }}
+                />
+                Profile
+              </Link>
+            </li>
           </>
         ) : (
-          <li onClick={() => setOpen(false)}>
-            <Link to="/home">
-              <img className="icon" src={HomeIcon} alt="Icon" />
-              Accueil
-            </Link>
-          </li>
+          <>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/home">
+                <House
+                  size={25}
+                  color="royalblue"
+                  style={{ marginRight: "5px" }}
+                />
+                Accueil
+              </Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/etudiant/mesnotes">
+                <CardChecklist
+                  size={25}
+                  color="royalblue"
+                  style={{ marginRight: "5px" }}
+                />
+                Resultats
+              </Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
+              <Link to="/etudiant/profile">
+                <Person
+                  size={25}
+                  color="royalblue"
+                  style={{ marginRight: "5px" }}
+                />
+                Profile
+              </Link>
+            </li>
+          </>
         )}
 
         <li onClick={() => setOpen(false)}>
@@ -56,16 +99,14 @@ const LoggedOutMenu = ({ setOpen }) => {
           </Link>
         </li>
         <li style={{ cursor: "pointer" }} onClick={handleLogout}>
-          <img className="icon" src={ScheduleIcon} alt="Icon" />
+          <BoxArrowLeft
+            size={25}
+            color="royalblue"
+            style={{ marginRight: "5px" }}
+          />
           Se Deconnecter
         </li>
 
-        <li onClick={() => setOpen(false)}>
-          <Link to="/home">
-            <img className="icon" src={SettingsIcon} alt="Icon" />
-            Settings
-          </Link>
-        </li>
         <li onClick={() => setOpen(false)}>
           <Link to="/home">
             <img className="icon" src={HelpIcon} alt="Icon" />

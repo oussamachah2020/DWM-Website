@@ -1,5 +1,4 @@
 const express = require("express");
-const { insertMarks } = require("../controllers/marksController");
 const route = express.Router();
 const {
   register,
@@ -10,7 +9,6 @@ const {
 const { protect } = require("../middleware/authMiddleware");
 route.post("/", register).post("/login", login);
 route.get("/:id", getProfData);
-route.post("/marks", protect, insertMarks);
-route.post("/reset", updatePassword);
+route.patch("/reset", protect, updatePassword);
 
 module.exports = route;

@@ -5,6 +5,7 @@ import useProfContext from "../../hooks/useProfContext";
 import { HomeIcon } from "../../assets/icons";
 import AnnonceCard from "../../components/AnnonceCard";
 import "./home.scss";
+import Spinner from "../../components/Spinner";
 const HomeProf = () => {
   const { getAnnoncesWithAnnocersData, isLoading, allAnnonces } =
     useProfContext();
@@ -16,7 +17,9 @@ const HomeProf = () => {
   if (isLoading)
     return (
       <div className="home container-fluid">
-        <h2>Loading...</h2>
+        <div className="spinner-container">
+          <Spinner />
+        </div>
       </div>
     );
   return (

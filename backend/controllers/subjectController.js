@@ -25,7 +25,7 @@ const postSubject = asyncHandler(async (req, res) => {
 
 const getSubject = asyncHandler(async (req, res) => {
   const { subjectID } = req.params;
-  const subject = Subject.findById(subjectID);
+  const subject = await Subject.findById(subjectID);
 
   if (subject) {
     res.status(200).json(subject);

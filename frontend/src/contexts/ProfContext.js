@@ -115,6 +115,44 @@ const ProfContextProvider = ({ children }) => {
     }
   };
 
+  // POST mark
+  const postMark = async (marksData) => {
+    console.log("mark data", marksData);
+    setError(null);
+    setSuccess(null);
+    if (!user || !user.admin) return setError("Pas authorizé");
+    let success = null;
+    let error = null;
+    for (let i = 0; i < marksData.length; i++) {
+      const markData = marksData[i];
+
+      const { studentName, subjectName, mark } = markData;
+      if (!studentName || !subjectName || !mark)
+        return setError(
+          "Le nom de l'élève, la note de l'élève ou le nom de la matière est manquant"
+        );
+
+      const response = await fetch("/api/marks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+        body: JSON.stringify(markData),
+      });
+
+      const json = await response.json();
+      if (response.ok) {
+        success = json.message;
+        console.log("success", success);
+      } else {
+        error = json.error;
+      }
+    }
+    setSuccess(success);
+    setError(error);
+  };
+
   const values = {
     profAnnonces,
     profSubjects,
@@ -128,6 +166,8 @@ const ProfContextProvider = ({ children }) => {
     getAnnoncesWithAnnocersData,
     deleteAnnonce,
     getProfSubjects,
+    postMark,
+    setError,
   };
   return <ProfContext.Provider value={values}>{children}</ProfContext.Provider>;
 };

@@ -8,10 +8,11 @@ const {
   getStudentsByYear,
   updatePassword,
 } = require("../controllers/StudentController");
+const { protectStudent } = require("../middleware/authMiddleware");
 
 route.post("/", addStudent).post("/register", register).post("/login", login);
 route.get("/:year", getStudentsByYear);
 route.delete("/:id", deleteStudent);
-route.post("/reset", updatePassword);
+route.patch("/reset", protectStudent, updatePassword);
 
 module.exports = route;

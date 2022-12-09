@@ -6,6 +6,7 @@ import { HomeIcon } from "../../assets/icons";
 import AnnonceCard from "../../components/AnnonceCard";
 import "./home.scss";
 import useAuthContext from "../../hooks/useAuthContext";
+import Spinner from "../../components/Spinner";
 const HomeStudent = () => {
   const { user } = useAuthContext();
   const { getStudentRelatedAnnonces, isLoading, studentRelatedAnnonces } =
@@ -18,7 +19,9 @@ const HomeStudent = () => {
   if (isLoading)
     return (
       <div className="home container-fluid">
-        <h2>Loading...</h2>
+        <div className="spinner-container">
+          <Spinner />
+        </div>
       </div>
     );
   return (

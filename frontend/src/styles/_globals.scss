@@ -79,9 +79,6 @@ h2 {
   font-size: 25px;
   border-radius: 10px;
   font-weight: 600;
-  &:hover {
-    opacity: 0.8;
-  }
 }
 
 .btn-link {
@@ -116,6 +113,9 @@ button {
   border: none;
   color: inherit;
   cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 a {
   text-decoration: none;
@@ -135,8 +135,6 @@ input {
   border-radius: 10px;
   padding: 11px 40px;
   font-family: "Poppins";
-  font-size: 23px;
-  font-weight: 600;
   display: block;
 }
 
@@ -146,6 +144,14 @@ input {
   letter-spacing: 0.1em;
   font-family: "Poppins";
   font-weight: 500;
+}
+
+.spinner-container {
+  height: calc(100vh - $navSize);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button[type="submit"] {
@@ -193,6 +199,6 @@ button {
 }
 
 button:disabled {
-  background-color: #feefb3 !important;
+  opacity: 0.5 !important;
   cursor: wait !important;
 }
