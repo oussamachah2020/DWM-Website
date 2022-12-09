@@ -84,20 +84,24 @@ const getProfData = AsyncHandler(async (req, res) => {
 });
 
 const updatePassword = AsyncHandler(async (req, res) => {
-  const { password } = req.body;
+  const { email, password } = req.body;
 
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(password, salt);
 
-  const prof = await Prof.findByIdAndUpdate(req.params.id, {
+  const findProf = await Prof.findOne({ email });
+
+  if (!findProf) {
+    res.status(400).json({ error: "user is not found" });
+  }
+
+  const prof = await Prof.findByIdAndUpdate(findUser._id, {
     password: hashPassword,
   });
 
-  if (!prof) {
-    res.status(400).json({ error: "étudiant n'existe pas!" });
+  if (prof) {
+    res.status(200).json({ msg: "user password upadated" });
   }
-
-  res.status(200).json({ msg: "Mot de passe mis à jour" });
 });
 
 const generateToken = (id) => {

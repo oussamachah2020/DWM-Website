@@ -160,20 +160,24 @@ const getStudentsByYear = AsyncHandler(async (req, res) => {
 });
 
 const updatePassword = AsyncHandler(async (req, res) => {
-  const { password } = req.body;
+  const { email, password } = req.body;
 
   const salt = await bcrypt.genSalt(10);
   const hashPassword = await bcrypt.hash(password, salt);
 
-  const student = await Student.findByIdAndUpdate(req.params.id, {
+  const findStudent = await Student.findOne({ email });
+
+  if (!findStudent) {
+    res.status(400).json({ error: "user is not found" });
+  }
+
+  const student = await Student.findByIdAndUpdate(findStudent._id, {
     password: hashPassword,
   });
 
-  if (!student) {
-    res.status(400).json({ error: "étudiant n'existe pas!" });
+  if (student) {
+    res.status(200).json({ msg: "user password upadated" });
   }
-
-  res.status(200).json({ msg: "Mot de passe mis à jour" });
 });
 
 const generateToken = (id) => {

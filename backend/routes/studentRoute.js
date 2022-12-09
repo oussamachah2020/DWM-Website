@@ -12,6 +12,6 @@ const {
 route.post("/", addStudent).post("/register", register).post("/login", login);
 route.get("/:year", getStudentsByYear);
 route.delete("/:id", deleteStudent);
-route.post("/reset/:id", updatePassword);
+route.post("/reset", updatePassword);
 
 module.exports = route;
