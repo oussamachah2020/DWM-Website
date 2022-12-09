@@ -158,6 +158,24 @@ const getStudentsByYear = AsyncHandler(async (req, res) => {
 
   res.status(200).json(students);
 });
+
+const updatePassword = AsyncHandler(async (req, res) => {
+  const { password } = req.body;
+
+  const salt = await bcrypt.genSalt(10);
+  const hashPassword = await bcrypt.hash(password, salt);
+
+  const student = await Student.findByIdAndUpdate(req.params.id, {
+    password: hashPassword,
+  });
+
+  if (!student) {
+    res.status(400).json({ error: "étudiant n'existe pas!" });
+  }
+
+  res.status(200).json({ msg: "Mot de passe mis à jour" });
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
@@ -168,4 +186,5 @@ module.exports = {
   deleteStudent,
   addStudent,
   getStudentsByYear,
+  updatePassword,
 };
