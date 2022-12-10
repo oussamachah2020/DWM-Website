@@ -14,10 +14,10 @@ const UploadFileModal = ({ fileCategory, setIsModalOpen }) => {
     setSuccess(null);
     if (!selectedFile)
       return setError("Vous n'avez pas selectionné un fichier");
-    if (selectedFile.size > 16384)
-      return setError(
-        "La taille du fichier ne peut pas dépasser plus de 16 Mo"
-      );
+    // if (selectedFile.size > 16384)
+    //   return setError(
+    //     "La taille du fichier ne peut pas dépasser plus de 16 Mo"
+    //   );
 
     console.log("selectedFile", selectedFile);
     console.log("fileCategory", fileCategory);
