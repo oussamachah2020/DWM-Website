@@ -4,12 +4,17 @@ const {
   uploadCours,
   uploadTPs,
   uploadTDs,
+  getFiles,
   deleteFile,
 } = require("../controllers/FileController");
+const { protect } = require("../middleware/authMiddleware");
 const FileModel = require("../models/fileModel");
+const Subject = require("../models/subjectModel");
 
-route.post("/cours", (req, res) => {
-  uploadCours(req, res, (err) => {
+route.post("/cours", protect, async (req, res) => {
+  uploadCours(req, res, async (err) => {
+    const subject = await Subject.findOne({ name: req.body.subjectName });
+    const { _id } = subject._id;
     if (err) {
       console.log(err);
     } else {
@@ -19,14 +24,19 @@ route.post("/cours", (req, res) => {
           data: req.file.filename,
           contentType: req.file.mimetype,
         },
+        profID: req.prof,
+        subjectID: _id,
+        Filetype: "Cours",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
   });
 });
 
-route.post("/tps", (req, res) => {
-  uploadTPs(req, res, (err) => {
+route.post("/tps", protect, async (req, res) => {
+  uploadTPs(req, res, async (err) => {
+    const subject = await Subject.findOne({ name: req.body.subjectName });
+    const { _id } = subject._id;
     if (err) {
       console.log(err);
     } else {
@@ -36,14 +46,19 @@ route.post("/tps", (req, res) => {
           data: req.file.filename,
           contentType: req.file.mimetype,
         },
+        profID: req.prof,
+        subjectID: _id,
+        Filetype: "TP",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
   });
 });
 
-route.post("/tds", (req, res) => {
-  uploadTDs(req, res, (err) => {
+route.post("/tds", protect, async (req, res) => {
+  uploadTDs(req, res, async (err) => {
+    const subject = await Subject.findOne({ name: req.body.subjectName });
+    const { _id } = subject._id;
     if (err) {
       console.log(err);
     } else {
@@ -53,20 +68,17 @@ route.post("/tds", (req, res) => {
           data: req.file.filename,
           contentType: req.file.mimetype,
         },
+        profID: req.prof,
+        subjectID: _id,
+        Filetype: "TD",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
   });
 });
 
-route.post("/removeFile", (req, res) => {
-  const filePath = req.body.path;
-  if (deleteFile(filePath)) {
-    res.status(200).json("deleted successefuly");
-  } else {
-    res.status(400);
-    throw new Error("Something wrong or wrong path");
-  }
-});
+route.delete("/:fileId", deleteFile);
+
+route.get("/", protect, getFiles);
 
 module.exports = route;

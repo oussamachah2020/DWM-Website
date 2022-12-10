@@ -9,7 +9,21 @@ const FileSchema = mongoose.Schema({
     data: Buffer,
     contentType: String,
   },
+  profID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Prof",
+  },
+  subjectID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "subject",
+  },
+
+  Filetype: {
+    type: String,
+  },
 });
 
-const FileModel = mongoose.model("file", FileSchema); 
+const FileModel = mongoose.model("file", FileSchema);
 module.exports = FileModel;
