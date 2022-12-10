@@ -1,0 +1,44 @@
+@import "../../../styles/globals";
+
+.student-marks-page {
+  padding-top: calc($navSize + 30px) !important;
+  height: calc(100vh - $navSize);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  table {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 30px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid black;
+  }
+
+  th,
+  td {
+    /* cell */
+    padding: 0.75rem;
+    font-size: 0.9375rem;
+  }
+
+  th {
+    /* header cell */
+    font-weight: 700;
+    text-align: left;
+    color: #272838;
+    border-bottom: 2px solid #eb9486;
+
+    position: sticky;
+    top: 0;
+    background-color: #f9f8f8;
+  }
+
+  td {
+    /* body cell */
+    color: #7e7f9a;
+  }
+}

@@ -1,0 +1,55 @@
+@import "variables";
+
+.hamburger-menu {
+  font-weight: 500;
+  font-family: "poppins";
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 58px;
+  box-shadow: -10px 0px 4px rgba(0, 0, 0, 0.25);
+  z-index: 102;
+  padding: 23px 25px;
+  padding-bottom: 48px;
+  .logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 34px;
+  }
+  .silent {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.43);
+    margin-bottom: 13px;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    li {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      a,
+      p {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+    }
+    .authentication-links {
+      width: 100%;
+      padding: 0 22px;
+      margin: 18px 0;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
