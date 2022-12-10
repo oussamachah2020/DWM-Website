@@ -16,7 +16,10 @@ import StudentMarks from "./pages/student/student marks/StudentMarks";
 import ProfileStudent from "./pages/student/profile/ProfileStudent";
 import UpdatePassword from "./pages/update password/UpdatePassword";
 import ProfileProf from "./pages/dashboard/profile/ProfileProf";
+<<<<<<< HEAD
 import ProfCours from "./pages/prof cours/ProfCours";
+=======
+>>>>>>> a623b5e593a0b27854d8a0c208e450363f76d006
 function App() {
   return (
     <>
@@ -29,7 +32,10 @@ function App() {
           <Route path="login" element={<LoginTeacher />} />
           <Route path="annoncer" element={<Annoncer />} />
           <Route path="mesannonces" element={<ProfAnnonces />} />
+<<<<<<< HEAD
           <Route path="mescours" element={<ProfCours />} />
+=======
+>>>>>>> a623b5e593a0b27854d8a0c208e450363f76d006
           <Route path="ajouter-notes" element={<AjouterNotes />} />
           <Route path="profile" element={<ProfileProf />} />
           <Route path="modifier-motdepasse" element={<UpdatePassword />} />
