@@ -22,7 +22,7 @@ route.post("/:category", protect, async (req, res) => {
   });
 });
 
-route.delete("/:fileId", deleteFile);
+route.delete("/:subjectName/:category/:fileName", deleteFile);
 
 route.get("/:subjectName/:category", protect, getFiles);
 

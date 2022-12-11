@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54854f6f-ef42-4aee-9db2-34f3cf8fad7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Chapitre2_PHP_OO-Class.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Chapitre3_Session_Class.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Presentaion PDO.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/TELECOM_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/orange-meditel.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/orange.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/FileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/FileController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/Inked db model.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/S3-M10_Cours Traitement d'images.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/WIN_20221114_17_24_05_Pro.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/WIN_20221122_15_17_17_Pro.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/anneaux.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/atomic-habits.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/pexels-christian-heitz-842711.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/tds/damier.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +87,7 @@
       <workItem from="1670628679485" duration="31000" />
       <workItem from="1670681812761" duration="285000" />
       <workItem from="1670682103491" duration="6894000" />
-      <workItem from="1670765470395" duration="7369000" />
+      <workItem from="1670765470395" duration="8094000" />
     </task>
     <servers />
   </component>

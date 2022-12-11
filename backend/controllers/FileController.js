@@ -1,6 +1,6 @@
 const multer = require("multer");
 const FileModel = require("../models/fileModel");
-// const fsPromises = require("fs/promises");
+const fsPromises = require("fs/promises");
 
 const AsyncHandler = require("express-async-handler");
 const fs = require("fs");
@@ -23,9 +23,14 @@ const uploadFile = multer({
 }).single("myFile");
 
 const deleteFile = AsyncHandler(async (req, res) => {
-  const { fileId } = req.params;
-  // const File = await FileModel.findOneAndRemove({ _id: fileId });
-  // const pdf = fs.writeFile(File, File.data).toString('utf8')
+  const { subjectName, category, fileName } = req.params;
+
+  try {
+    await fsPromises.unlink(`uploads/subjects/${subjectName}/${category}/${fileName}`)
+  }catch(err) {
+    res.status(401).json({ err: err.msg });
+  }
+
   if (File) {
     res.status(200).json("deleted successfully");
   } else {
