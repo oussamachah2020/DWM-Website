@@ -12,21 +12,23 @@ const FileModel = require("../models/fileModel");
 const Subject = require("../models/subjectModel");
 
 route.post("/cours", protect, async (req, res) => {
-  uploadCours(req, res, async (err) => {
-    const subject = await Subject.findOne({ name: req.body.subjectName });
-    const { _id } = subject._id;
+  uploadTDs(req, res, async (err) => {
+    const { subjectID, name, myFile } = req.body;
+    console.log("reqBody", req.body);
+    // console.log("myFile", myFile);
+    // console.log("subjectID", subjectID);
+    // console.log("name", name);
     if (err) {
       console.log(err);
     } else {
       const newFile = new FileModel({
-        name: req.body.name,
+        name,
         file: {
-          data: req.file.filename,
-          contentType: req.file.mimetype,
+          data: myFile.name,
+          contentType: myFile.type,
         },
-        profID: req.prof,
-        subjectID: _id,
-        Filetype: "Cours",
+        subjectID,
+        category: "Cours",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
@@ -34,21 +36,19 @@ route.post("/cours", protect, async (req, res) => {
 });
 
 route.post("/tps", protect, async (req, res) => {
-  uploadTPs(req, res, async (err) => {
-    const subject = await Subject.findOne({ name: req.body.subjectName });
-    const { _id } = subject._id;
+  uploadTDs(req, res, async (err) => {
+    const { subjectID, name, file } = req.body;
     if (err) {
       console.log(err);
     } else {
       const newFile = new FileModel({
-        name: req.body.name,
+        name,
         file: {
-          data: req.file.filename,
-          contentType: req.file.mimetype,
+          data: file.filename,
+          contentType: file.mimetype,
         },
-        profID: req.prof,
-        subjectID: _id,
-        Filetype: "TP",
+        subjectID,
+        category: "TP",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
@@ -57,20 +57,18 @@ route.post("/tps", protect, async (req, res) => {
 
 route.post("/tds", protect, async (req, res) => {
   uploadTDs(req, res, async (err) => {
-    const subject = await Subject.findOne({ name: req.body.subjectName });
-    const { _id } = subject._id;
+    const { subjectID, name, file } = req.body;
     if (err) {
       console.log(err);
     } else {
       const newFile = new FileModel({
-        name: req.body.name,
+        name,
         file: {
-          data: req.file.filename,
-          contentType: req.file.mimetype,
+          data: file.filename,
+          contentType: file.mimetype,
         },
-        profID: req.prof,
-        subjectID: _id,
-        Filetype: "TD",
+        subjectID,
+        category: "TD",
       });
       newFile.save().then(() => res.send("file uploaded"));
     }
@@ -79,6 +77,6 @@ route.post("/tds", protect, async (req, res) => {
 
 route.delete("/:fileId", deleteFile);
 
-route.get("/", protect, getFiles);
+route.get("/:subjectID", protect, getFiles);
 
 module.exports = route;

@@ -99,8 +99,8 @@ const ProfContextProvider = ({ children }) => {
 
   // GET prof subjects
   const getProfSubjects = async () => {
-    if (!user) return;
     setIsLoading(true);
+    if (!user) return;
     const response = await fetch("/api/subjects/", {
       method: "GET",
       headers: {
@@ -111,7 +111,6 @@ const ProfContextProvider = ({ children }) => {
       const json = await response.json();
       setProfSubjects(json);
       setIsLoading(false);
-      return;
     }
   };
 

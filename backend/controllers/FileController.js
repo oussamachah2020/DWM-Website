@@ -1,6 +1,7 @@
 const multer = require("multer");
 const FileModel = require("../models/fileModel");
 const fsPromises = require("fs/promises");
+
 const AsyncHandler = require("express-async-handler");
 const fs = require("fs");
 
@@ -53,25 +54,23 @@ const deleteFile = AsyncHandler(async (req, res) => {
 });
 
 const getFiles = AsyncHandler(async (req, res) => {
-  const files = await FileModel.find({ profID: req.prof.id });
+  const files = await FileModel.find({ subjectID: req.params.subjectID });
 
   if (files) {
-    files.forEach(file => {
-
-    })
-    res.status(200).json({ files });
-    if (files.Filetype === "Cours") {
+    files.forEach((file) => {});
+    res.status(200).json(files);
+    if (files.category === "Cours") {
       await fs.promises.access("uploads/Cours");
     }
 
-    if (files.Filetype === "TP") {
+    if (files.category === "TP") {
       await fs.promises.access("uploads/TPs");
     }
 
-    if (files.Filetype === "TD") {
+    if (files.category === "TD") {
       await fs.promises.access("uploads/TDs");
     }
   }
 });
 
-module.exports = { uploadCours, uploadTPs, uploadTDs, deleteFile, getFiles };
+module.exports = { uploadCours, uploadTPs, uploadTDs, getFiles, deleteFile };

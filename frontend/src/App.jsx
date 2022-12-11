@@ -16,6 +16,7 @@ import StudentMarks from "./pages/student/student marks/StudentMarks";
 import ProfileStudent from "./pages/student/profile/ProfileStudent";
 import UpdatePassword from "./pages/update password/UpdatePassword";
 import ProfileProf from "./pages/dashboard/profile/ProfileProf";
+import ProfCours from "./pages/prof cours/ProfCours";
 function App() {
   return (
     <>
@@ -29,6 +30,8 @@ function App() {
           <Route path="annoncer" element={<Annoncer />} />
           <Route path="mesannonces" element={<ProfAnnonces />} />
           <Route path="ajouter-notes" element={<AjouterNotes />} />
+          <Route path="mescours" element={<ProfCours />} />
+
           <Route path="profile" element={<ProfileProf />} />
           <Route path="modifier-motdepasse" element={<UpdatePassword />} />
         </Route>
