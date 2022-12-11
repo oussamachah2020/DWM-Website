@@ -13,6 +13,7 @@ const Subject = require("../models/subjectModel");
 const multer = require("multer");
 
 route.post("/cours", protect, async (req, res) => {
+  console.log("hit");
   uploadCours(req, res, async (err) => {
     const { subjectID, name, myFile } = req.body;
     if (err instanceof multer.MulterError) {
@@ -31,7 +32,7 @@ route.post("/cours", protect, async (req, res) => {
     //   });
     //   newFile.save().then(() => res.send(req.file));
     // }
-    return res.status(200).send(req.file);
+    res.status(200).json({ msg: "success" });
   });
 });
 

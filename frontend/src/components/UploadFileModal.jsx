@@ -40,6 +40,9 @@ const UploadFileModal = ({
       },
       body: formData,
     });
+
+    const json = await response.json();
+    console.log(json);
   };
   if (isPostingFile) {
     return (
