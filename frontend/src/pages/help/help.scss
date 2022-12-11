@@ -1,0 +1,21 @@
+@import "../../styles/globals";
+
+.help-page {
+  padding-top: calc($navSize + 30px) !important;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  span {
+    color: $blue;
+    display: block;
+    font-weight: bold;
+  }
+}

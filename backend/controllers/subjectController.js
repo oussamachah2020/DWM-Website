@@ -42,4 +42,18 @@ const getProfSubjects = asyncHandler(async (req, res) => {
   res.status(200).json(subjects);
 });
 
-module.exports = { postSubject, getSubject, getProfSubjects };
+const getStudentSubjects = asyncHandler(async (req, res) => {
+  console.log("hiitt");
+  const { year } = req.student;
+  console.log("year", year);
+  const subjects = await Subject.find({ year });
+
+  res.status(200).json(subjects);
+});
+
+module.exports = {
+  postSubject,
+  getSubject,
+  getProfSubjects,
+  getStudentSubjects,
+};

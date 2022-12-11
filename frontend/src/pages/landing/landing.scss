@@ -17,11 +17,24 @@
     padding-top: 154px;
     padding-bottom: 124px;
   }
-
+  .flex-2-wrap {
+    margin-bottom: 50px;
+  }
   .flex-2 {
     margin-bottom: 100px !important;
   }
-
+  img {
+    width: 100%;
+    display: block;
+    height: 250px;
+  }
+  .col {
+    flex: 0 1 400px;
+  }
+  .col-image {
+    border: 2px solid $blue;
+    flex: 0.5 1 300px !important;
+  }
   .btn-container {
     max-width: 461px;
     margin: 0 auto;

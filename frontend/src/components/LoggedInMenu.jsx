@@ -13,8 +13,10 @@ import {
   BoxArrowDownLeft,
   BoxArrowLeft,
   CardChecklist,
+  FileEarmarkText,
   House,
   Person,
+  Speedometer2,
 } from "react-bootstrap-icons";
 const LoggedOutMenu = ({ setOpen }) => {
   const { logout } = useLogout();
@@ -28,7 +30,10 @@ const LoggedOutMenu = ({ setOpen }) => {
   return (
     <div className="hamburger-menu">
       <img className="logo" src={logo} alt="Logo" />
-      <h3 style={{ textAlign: "center" }}>{user.username}</h3>
+
+      <h3 className="username" style={{ textAlign: "center" }}>
+        {user.username}
+      </h3>
       <p className="silent">Menu</p>
 
       <ul className="nav-links">
@@ -36,13 +41,13 @@ const LoggedOutMenu = ({ setOpen }) => {
           <>
             <li onClick={() => setOpen(false)}>
               <Link to="/home">
-                <img className="icon" src={HomeIcon} alt="Icon" />
+                <House size={20} color="royalblue" />
                 Accueil
               </Link>
             </li>
             <li onClick={() => setOpen(false)}>
               <Link to="/dashboard">
-                <img className="icon" src={HomeIcon} alt="Icon" />
+                <Speedometer2 size={20} color="royalblue" />
                 Dashboard
               </Link>
             </li>
@@ -80,6 +85,16 @@ const LoggedOutMenu = ({ setOpen }) => {
               </Link>
             </li>
             <li onClick={() => setOpen(false)}>
+              <Link to="/etudiant/mescours">
+                <FileEarmarkText
+                  color="royalblue"
+                  size={25}
+                  style={{ marginRight: "5px" }}
+                />
+                Modules
+              </Link>
+            </li>
+            <li onClick={() => setOpen(false)}>
               <Link to="/etudiant/profile">
                 <Person
                   size={25}
@@ -92,12 +107,6 @@ const LoggedOutMenu = ({ setOpen }) => {
           </>
         )}
 
-        <li onClick={() => setOpen(false)}>
-          <Link to="/home">
-            <img className="icon" src={ScheduleIcon} alt="Icon" />
-            Horaires
-          </Link>
-        </li>
         <li style={{ cursor: "pointer" }} onClick={handleLogout}>
           <BoxArrowLeft
             size={25}
@@ -108,7 +117,7 @@ const LoggedOutMenu = ({ setOpen }) => {
         </li>
 
         <li onClick={() => setOpen(false)}>
-          <Link to="/home">
+          <Link to="/help">
             <img className="icon" src={HelpIcon} alt="Icon" />
             Help
           </Link>

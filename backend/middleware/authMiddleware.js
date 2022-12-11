@@ -30,6 +30,7 @@ const protect = asyncHandler(async (req, res, next) => {
 });
 
 const protectStudent = asyncHandler(async (req, res, next) => {
+  console.log("middleware hit");
   let token;
   if (
     req.headers.authorization &&

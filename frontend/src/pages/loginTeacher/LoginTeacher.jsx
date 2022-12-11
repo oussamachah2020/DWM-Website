@@ -39,9 +39,6 @@ const LoginTeacher = () => {
         <button disabled={isLoading} className="btn-primary" type="submit">
           Se Connecter
         </button>
-        <Link className="ghost-btn" to="">
-          Mot de passe oublié?
-        </Link>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import { HomeIcon } from "../../assets/icons";
 import AnnonceCard from "../../components/AnnonceCard";
 import "./home.scss";
 import Spinner from "../../components/Spinner";
+import { FileEarmarkText, Pen } from "react-bootstrap-icons";
 const HomeProf = () => {
   const { getAnnoncesWithAnnocersData, isLoading, allAnnonces } =
     useProfContext();
@@ -26,11 +27,12 @@ const HomeProf = () => {
     <div className="home container-fluid">
       <aside>
         <Link to="/dashboard/annoncer">
-          <img src={HomeIcon} alt="Icon" />
+          <Pen color="royalblue" size={20} />
           <span>Annoncer Quelque Chose</span>
         </Link>
         <Link to="/dashboard/mesannonces">
-          <img src={HomeIcon} alt="Icon" />
+          <FileEarmarkText color="royalblue" size={20} />
+
           <span>Mes Annonces</span>
         </Link>
       </aside>

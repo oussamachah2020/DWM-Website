@@ -4,10 +4,15 @@ const {
   postSubject,
   getProfSubjects,
   getSubject,
+  getStudentSubjects,
 } = require("../controllers/subjectController");
-const { protect } = require("../middleware/authMiddleware");
+const { protect, protectStudent } = require("../middleware/authMiddleware");
 
 subjectRoute.post("/", protect, postSubject);
+
 subjectRoute.get("/", protect, getProfSubjects);
+subjectRoute.get("/studentsubjects", protectStudent, getStudentSubjects);
+
 subjectRoute.get("/:subjectID", getSubject);
+
 module.exports = subjectRoute;

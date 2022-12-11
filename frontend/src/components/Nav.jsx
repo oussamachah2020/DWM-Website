@@ -14,7 +14,9 @@ const Nav = () => {
   return (
     <nav className="flex-2">
       {isOpen && <div className="blur-overlay" />}
-      <img src={logo} alt="Logo" />
+      <Link to={user ? "/home" : "/"}>
+        <img src={logo} alt="Logo" />
+      </Link>
       <div className="name-burger-container">
         {user && <h4>Bienvenue {user.username}</h4>}
         <Hamburger size={35} toggled={isOpen} toggle={() => setOpen(!isOpen)} />

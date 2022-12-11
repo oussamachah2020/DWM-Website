@@ -160,12 +160,20 @@ const getStudentsByYear = AsyncHandler(async (req, res) => {
 });
 
 const updatePassword = AsyncHandler(async (req, res) => {
-  const { password } = req.body;
+  const { password, newPassword } = req.body;
   console.log("req body", req.body);
-  console.log("new password", password);
+  console.log("newPassword", newPassword);
   const { _id } = req.student;
+
+  const foundStudent = await Student.findById(_id);
+  const match = await bcrypt.compare(password, foundStudent.password);
+  if (!match) {
+    const errorMsg = "Mot de passe actuelle non correcte";
+    return res.status(400).json({ error: errorMsg });
+  }
+
   const salt = await bcrypt.genSalt(10);
-  const hashPassword = await bcrypt.hash(password, salt);
+  const hashPassword = await bcrypt.hash(newPassword, salt);
 
   const student = await Student.findByIdAndUpdate(_id, {
     password: hashPassword,

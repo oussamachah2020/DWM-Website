@@ -17,12 +17,16 @@ import ProfileStudent from "./pages/student/profile/ProfileStudent";
 import UpdatePassword from "./pages/update password/UpdatePassword";
 import ProfileProf from "./pages/dashboard/profile/ProfileProf";
 import ProfCours from "./pages/prof cours/ProfCours";
+import StudentCourses from "./pages/student/student courses/StudentCourses";
+import Help from "./pages/help/Help";
 function App() {
   return (
     <>
       <Nav />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/help" element={<Help />} />
+
         {/* dashboard routes */}
         <Route path="/dashboard" element={<ProfContextRoutesProvider />}>
           <Route index element={<Dashboard />} />
@@ -43,6 +47,7 @@ function App() {
           <Route path="mesnotes" element={<StudentMarks />} />
           <Route path="profile" element={<ProfileStudent />} />
           <Route path="modifier-motdepasse" element={<UpdatePassword />} />
+          <Route path="mescours" element={<StudentCourses />} />
         </Route>
         {/* end of student routes */}
 

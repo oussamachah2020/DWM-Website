@@ -1,11 +1,11 @@
-const updatePassword = async (password, url, token) => {
+const updatePassword = async (password, newPassword, url, token) => {
   const response = await fetch(url, {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ password }),
+    body: JSON.stringify({ password, newPassword }),
   });
 
   let isSuccess = false;

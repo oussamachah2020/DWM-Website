@@ -8,6 +8,7 @@ const StudentContextProvider = ({ children }) => {
   const { user } = useAuthContext();
   const [studentRelatedAnnonces, setStudentRelatedAnnonces] = useState({});
   const [studentMarks, setStudentMarks] = useState([]);
+  const [studentSubjects, setStudentSubjects] = useState([]);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -70,6 +71,21 @@ const StudentContextProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  const getStudentSubjects = async () => {
+    setIsLoading(true);
+    if (!user) return;
+    const response = await fetch("/api/subjects/studentsubjects", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+
+    const json = await response.json();
+    setStudentSubjects(json);
+    console.log("student subjects", json);
+    setIsLoading(false);
+  };
   const values = {
     getStudentRelatedAnnonces,
     studentRelatedAnnonces,
@@ -78,6 +94,8 @@ const StudentContextProvider = ({ children }) => {
     isLoading,
     studentMarks,
     getStudentMarks,
+    getStudentSubjects,
+    studentSubjects,
   };
   return (
     <StudentContext.Provider value={values}>{children}</StudentContext.Provider>

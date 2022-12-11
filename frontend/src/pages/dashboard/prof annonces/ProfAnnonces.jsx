@@ -6,6 +6,8 @@ import { HomeIcon } from "../../../assets/icons";
 import "./profAnnonces.scss";
 import ProfAnnonceCard from "../../../components/ProfAnnonceCard";
 import useAuthContext from "../../../hooks/useAuthContext";
+import { Pen } from "react-bootstrap-icons";
+import Spinner from "../../../components/Spinner";
 const ProfAnnonces = () => {
   const { user } = useAuthContext();
   const { getProfAnnonces, isLoading, profAnnonces } = useProfContext();
@@ -17,14 +19,16 @@ const ProfAnnonces = () => {
   if (isLoading)
     return (
       <div className="prof-annonces container-fluid">
-        <h2>Loading...</h2>
+        <div className="spinner-container">
+          <Spinner />
+        </div>
       </div>
     );
   return (
     <div className="prof-annonces container-fluid">
       <aside>
         <Link to="/dashboard/annoncer">
-          <img src={HomeIcon} alt="Icon" />
+          <Pen color="royalblue" size={20} />
           <span>Annoncer Quelque Chose</span>
         </Link>
         {/* <Link to="/dashboard/mesannonces">

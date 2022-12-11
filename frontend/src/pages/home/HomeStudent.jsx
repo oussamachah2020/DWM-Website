@@ -7,6 +7,7 @@ import AnnonceCard from "../../components/AnnonceCard";
 import "./home.scss";
 import useAuthContext from "../../hooks/useAuthContext";
 import Spinner from "../../components/Spinner";
+import { Check2All, FileEarmarkText } from "react-bootstrap-icons";
 const HomeStudent = () => {
   const { user } = useAuthContext();
   const { getStudentRelatedAnnonces, isLoading, studentRelatedAnnonces } =
@@ -27,12 +28,12 @@ const HomeStudent = () => {
   return (
     <div className="home container-fluid">
       <aside>
-        <Link to="/home">
-          <img src={HomeIcon} alt="Icon" />
+        <Link to="/etudiant/mesnotes">
+          <Check2All color="royalblue" size={20} />
           <span>Consulter les notes</span>
         </Link>
-        <Link to="/home">
-          <img src={HomeIcon} alt="Icon" />
+        <Link to="/etudiant/mescours">
+          <FileEarmarkText color="royalblue" size={20} />
           <span>Consulter les modules</span>
         </Link>
       </aside>

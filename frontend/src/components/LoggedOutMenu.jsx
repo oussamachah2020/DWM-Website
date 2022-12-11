@@ -45,14 +45,9 @@ const LoggedOutMenu = ({ setOpen }) => {
             </Link>
           </ul>
         </li>
+
         <li onClick={() => setOpen(false)}>
-          <Link to="/home">
-            <img className="icon" src={SettingsIcon} alt="Icon" />
-            Settings
-          </Link>
-        </li>
-        <li onClick={() => setOpen(false)}>
-          <Link to="/home">
+          <Link to="/help">
             <img className="icon" src={HelpIcon} alt="Icon" />
             Help
           </Link>
