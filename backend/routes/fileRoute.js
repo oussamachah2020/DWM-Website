@@ -12,12 +12,11 @@ const FileModel = require("../models/fileModel");
 const Subject = require("../models/subjectModel");
 
 route.post("/cours", protect, async (req, res) => {
+  console.log("reqBody 1", req);
+
   uploadTDs(req, res, async (err) => {
     const { subjectID, name, myFile } = req.body;
     console.log("reqBody", req.body);
-    // console.log("myFile", myFile);
-    // console.log("subjectID", subjectID);
-    // console.log("name", name);
     if (err) {
       console.log(err);
     } else {

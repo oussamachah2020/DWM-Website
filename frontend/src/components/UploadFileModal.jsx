@@ -27,18 +27,18 @@ const UploadFileModal = ({
 
     console.log("selectedFile", selectedFile);
     console.log("fileCategory", fileCategory);
+    let formData = new FormData();
+
+    formData.append("name", selectedFile.name.split(".")[0]);
+    formData.append("subjectID", selectedSubjectID);
+    formData.append("myFile", selectedFile);
 
     const response = await fetch(`/api/files/${fileCategory}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${user.token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: selectedFile.name.split(".")[0],
-        subjectID: selectedSubjectID,
-        myFile: selectedFile,
-      }),
+      body: formData,
     });
   };
   if (isPostingFile) {
@@ -61,6 +61,7 @@ const UploadFileModal = ({
           <label>Fichier: </label>
           <input
             type="file"
+            name="myFile"
             // value={selectedFile}
             onChange={(e) => setSelectedFile(e.target.files[0])}
           />
