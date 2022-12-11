@@ -1,6 +1,6 @@
 const multer = require("multer");
 const FileModel = require("../models/fileModel");
-const fsPromises = require("fs/promises");
+// const fsPromises = require("fs/promises");
 
 const AsyncHandler = require("express-async-handler");
 const fs = require("fs");
@@ -22,30 +22,6 @@ const uploadFile = multer({
   storage: SubjectData,
 }).single("myFile");
 
-//TPs upload
-// const TPs = multer.diskStorage({
-//   destination: "uploads/TPs",
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const uploadTPs = multer({
-//   storage: TPs,
-// }).single("TP");
-
-// //TDs upload
-// const TDs = multer.diskStorage({
-//   destination: "uploads/TDs",
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const uploadTDs = multer({
-//   storage: TDs,
-// }).single("TD");
-
 const deleteFile = AsyncHandler(async (req, res) => {
   const { fileId } = req.params;
   // const File = await FileModel.findOneAndRemove({ _id: fileId });
@@ -59,24 +35,23 @@ const deleteFile = AsyncHandler(async (req, res) => {
 });
 
 const getFiles = AsyncHandler(async (req, res) => {
-  // const files = await FileModel.find({ subjectID: req.params.subjectID });
   const {subjectName, category} = req.params
-  
-  // if (files) {
-  //   files.forEach((file) => {});
-  //   res.status(200).json(files);
-  //   if (files.category === "Cours") {
-  //     await fs.promises.access("uploads/Cours");
-  //   }
 
-  //   if (files.category === "TP") {
-  //     await fs.promises.access("uploads/TPs");
-  //   }
-
-  //   if (files.category === "TD") {
-  //     await fs.promises.access("uploads/TDs");
-  //   }
-  // }
+  try {
+    const files = await fs.stat(`uploads/subjects/${subjectName}/${category}`);
+    let filesData = []
+    if(category === "cours") {
+      filesData.push({cours: files})
+    }else if(category === "tds") {
+      filesData.push({tds: files})
+    }else if(category === "tps") {
+      filesData.push({tps: files})
+    }else {
+      res.status(404).json({ err: "category n'est pas trouvée" })
+    }
+  }catch(err) {
+    res.status(401).json({ err: err.msg })
+  }
 });
 
 module.exports = { uploadFile, getFiles, deleteFile };

@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54854f6f-ef42-4aee-9db2-34f3cf8fad7e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Chapitre2_PHP_OO-Class.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Chapitre3_Session_Class.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/Presentaion PDO.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/TELECOM_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/orange-meditel.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/cours/orange.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Chapitre2_PHP_OO-Class.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Chapitre2_PHP_OO-Class.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Chapitre3_Session_Class.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Chapitre3_Session_Class.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Presentaion PDO.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Presentaion PDO.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/TELECOM_.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/TELECOM_.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/orange-meditel.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/orange-meditel.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/orange.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/orange.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/uploads/TPs/PDOExemple2Marche.rar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/TPs/PDOExemple2Marche.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/FileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/FileController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/Inked db model.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/S3-M10_Cours Traitement d'images.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/WIN_20221114_17_24_05_Pro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/WIN_20221122_15_17_17_Pro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/anneaux.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/atomic-habits.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/cours/pexels-christian-heitz-842711.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/subjects/Architecture Des Ordinateurs/tds/damier.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,21 +52,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/oussama/Desktop/DWM-Website&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "18.12.1",
+    "javascript.nodejs.core.library.typings.version": "18.11.13",
+    "last_opened_file_path": "/home/oussama/Desktop/DWM-Website",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs" />
@@ -92,7 +102,7 @@
       <workItem from="1670628679485" duration="31000" />
       <workItem from="1670681812761" duration="285000" />
       <workItem from="1670682103491" duration="6894000" />
-      <workItem from="1670765470395" duration="3550000" />
+      <workItem from="1670765470395" duration="7369000" />
     </task>
     <servers />
   </component>
