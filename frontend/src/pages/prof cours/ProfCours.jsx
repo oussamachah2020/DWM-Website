@@ -39,6 +39,7 @@ const ProfCours = () => {
         <UploadFileModal
           setIsModalOpen={setIsModalOpen}
           fileCategory={fileCategory}
+          selectedSubjectID={selectedSubjectID}
         />
       )}
       <div className="prof-cours-page container-fluid">
