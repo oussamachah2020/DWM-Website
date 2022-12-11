@@ -15,7 +15,7 @@ const Cours = multer.diskStorage({
 
 const uploadCours = multer({
   storage: Cours,
-}).single("Cour");
+}).single("myFile");
 
 //TPs upload
 const TPs = multer.diskStorage({
