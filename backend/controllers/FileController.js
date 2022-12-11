@@ -8,9 +8,9 @@ const fs = require("fs");
 //Cours upload
 const Cours = multer.diskStorage({
   destination: (req, file, callback) => {
-    let subejctName = req.body.subjectName;
+    let subjectName = req.body.subjectName;
     let category = req.body.fileCategory
-    let path = `uploads/${subejctName}/${category}`;
+    let path = `uploads/${subjectName}/${category}`;
     fs.mkdirSync(path);
     callback(null, path);
   },
