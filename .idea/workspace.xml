@@ -6,12 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="54854f6f-ef42-4aee-9db2-34f3cf8fad7e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/FileController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/FileController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/fileRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/fileRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Chapitre2_PHP_OO-Class.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Chapitre2_PHP_OO-Class.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Chapitre3_Session_Class.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Chapitre3_Session_Class.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/DWM_S3-M10 Chapitres 2 &amp; 3.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/Presentaion PDO.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/Presentaion PDO.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/TELECOM_.png" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/TELECOM_.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/orange-meditel.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/orange-meditel.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/Cours/orange.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/Cours/orange.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/uploads/TPs/PDOExemple2Marche.rar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/uploads/subjects/Architectures Des Ordinateurs/TPs/PDOExemple2Marche.rar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +87,7 @@
       <workItem from="1670628679485" duration="31000" />
       <workItem from="1670681812761" duration="285000" />
       <workItem from="1670682103491" duration="6894000" />
-      <workItem from="1670765470395" duration="2401000" />
+      <workItem from="1670765470395" duration="3550000" />
     </task>
     <servers />
   </component>
