@@ -3,11 +3,7 @@ import "../styles/uploadFileModal.scss";
 import Spinner from "./Spinner";
 import "../styles/uploadFileModal.scss";
 import useAuthContext from "../hooks/useAuthContext";
-const UploadFileModal = ({
-  fileCategory,
-  setIsModalOpen,
-  selectedSubjectID,
-}) => {
+const UploadFileModal = ({ fileCategory, setIsModalOpen, selectedSubject }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -20,17 +16,15 @@ const UploadFileModal = ({
     if (!selectedFile)
       return setError("Vous n'avez pas selectionné un fichier");
 
-    // if (selectedFile.size > 16384)
-    //   return setError(
-    //     "La taille du fichier ne peut pas dépasser plus de 16 Mo"
-    //   );
-
+    // setIsPostingFile(true)
     console.log("selectedFile", selectedFile);
     console.log("fileCategory", fileCategory);
+    console.log("selectedSubject", selectedSubject);
+
     let formData = new FormData();
 
     formData.append("name", selectedFile.name.split(".")[0]);
-    formData.append("subjectID", selectedSubjectID);
+    formData.append("subjectName", selectedSubject);
     formData.append("myFile", selectedFile);
 
     const response = await fetch(`/api/files/${fileCategory}`, {
@@ -41,8 +35,16 @@ const UploadFileModal = ({
       body: formData,
     });
 
+
     const json = await response.json();
     console.log(json);
+    // if (response.ok) {
+    //   setSuccess("Fichier envoyé avec success")
+    // } else {
+    //   setError("N'a pas pu de envoyé le fichier")
+    // }
+
+    // setIsPostingFile(false)
   };
   if (isPostingFile) {
     return (
@@ -61,6 +63,7 @@ const UploadFileModal = ({
         </div>
         <form onSubmit={handleSubmit} action="">
           {error && <p className="error">{error}</p>}
+          {success && <p className="success">{success}</p>}
           <label>Fichier: </label>
           <input
             type="file"

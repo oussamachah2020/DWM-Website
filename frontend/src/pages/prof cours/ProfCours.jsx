@@ -9,7 +9,7 @@ import "./profCours.scss";
 const ProfCours = () => {
   const { user } = useAuthContext();
   const { getProfSubjects, isLoading, profSubjects } = useProfContext();
-  const [selectedSubjectID, setSelectedSubjectID] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState(null);
   const [fileCategory, setFileCategory] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
@@ -17,13 +17,13 @@ const ProfCours = () => {
   }, [user]);
 
   useEffect(() => {
-    if (profSubjects.length == 0) return setSelectedSubjectID(null);
-    setSelectedSubjectID(profSubjects[0]._id);
+    if (profSubjects.length == 0) return setSelectedSubject(null);
+    setSelectedSubject(profSubjects[0].name);
   }, [profSubjects]);
 
   useEffect(() => {
-    console.log("selected subject", selectedSubjectID);
-  }, [selectedSubjectID]);
+    console.log("selected subject", selectedSubject);
+  }, [selectedSubject]);
   if (isLoading) {
     return (
       <div className="prof-cours-page container-fluid">
@@ -39,7 +39,7 @@ const ProfCours = () => {
         <UploadFileModal
           setIsModalOpen={setIsModalOpen}
           fileCategory={fileCategory}
-          selectedSubjectID={selectedSubjectID}
+          selectedSubject={selectedSubject}
         />
       )}
       <div className="prof-cours-page container-fluid">
@@ -47,10 +47,10 @@ const ProfCours = () => {
         <div className="subjects-container">
           {profSubjects.map((subject) => (
             <div
-              onClick={() => setSelectedSubjectID(subject._id)}
+              onClick={() => setSelectedSubject(subject.name)}
               key={subject._id}
               className={
-                subject._id === selectedSubjectID
+                subject.name === selectedSubject
                   ? "subject selected"
                   : "subject"
               }
@@ -83,14 +83,42 @@ const ProfCours = () => {
           </div>
           <div className="file-container">
             <div className="header">
-              <h2 className="file-category">I- Cours</h2>
-              <button className="add-btn">Ajouter</button>
+              <h2 className="file-category">I- TD</h2>
+              <button
+                onClick={() => {
+                  setFileCategory("tds");
+                  setIsModalOpen(true);
+                }}
+                className="add-btn"
+              >
+                Ajouter
+              </button>
             </div>
             <div className="file">
-              <h4 className="file-name">Chapitre_1.pdf</h4>
+              <h4 className="file-name">TD.pdf</h4>
             </div>
             <div className="file">
-              <h4 className="file-name">Chapitre_1.pdf</h4>
+              <h4 className="file-name">TD.pdf</h4>
+            </div>
+          </div>
+          <div className="file-container">
+            <div className="header">
+              <h2 className="file-category">I- TP</h2>
+              <button
+                onClick={() => {
+                  setFileCategory("tps");
+                  setIsModalOpen(true);
+                }}
+                className="add-btn"
+              >
+                Ajouter
+              </button>
+            </div>
+            <div className="file">
+              <h4 className="file-name">TP.pdf</h4>
+            </div>
+            <div className="file">
+              <h4 className="file-name">TP.pdf</h4>
             </div>
           </div>
         </main>
